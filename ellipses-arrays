@@ -1,0 +1,30 @@
+var x = [];
+var y = [];
+var d = [];
+var colors = [];
+
+
+function setup() {
+	createCanvas(500, 500);
+
+	for (var index = 0; index < 50; index = index + 1) {
+		x[index] = random(0,500);
+		y[index] = random(0,500);
+		d[index] = random(2, 8);
+		colors[index] = color(255, random(150), random(155))
+	}
+}
+function draw() {
+	background(0);
+	noStroke();
+	for (var index = 0; index < 50; index = index + 1) {
+		fill(colors[index]);
+		ellipse(x[index], y[index], d[index]);
+
+		// 1% of the time
+		if (random() < 0.1) {
+			// random diameter between 10 and 400
+			d[index] = random(10, 20);
+		}
+	}
+}
